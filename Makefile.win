@@ -1,0 +1,34 @@
+# Project: Project1
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o Untitled.o Untitled1.o
+LINKOBJ  = main.o Untitled.o Untitled1.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -std=c99 -L"C:/sfml c++/SFML-2.3.2/lib" -mwindows -lsfml-audio -lsfml-graphics -lsfml-window -lsfml-system -lobjc -g3 -nostdlib -mwindows -s
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/sfml c++/SFML-2.3.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"C:/sfml c++/SFML-2.3.2/include"
+BIN      = sampleProject.exe
+CXXFLAGS = $(CXXINCS) -g3 -nostdlib -mwindows
+CFLAGS   = $(INCS) -g3 -nostdlib -mwindows
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+Untitled.o: Untitled.cpp
+	$(CPP) -c Untitled.cpp -o Untitled.o $(CXXFLAGS)
+
+Untitled1.o: Untitled1.cpp
+	$(CPP) -c Untitled1.cpp -o Untitled1.o $(CXXFLAGS)
